@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   Задание 1
+      //   Необходимо с помощью цикла for вывести следующие 11 строк в консоль:0 – это ноль,1 – нечетное число,2 – четное число,…,10 – четное число
+      for (let i = 0; i <= 10; i++) {
+        if (i === 0) {
+          console.log(`${i} - это ноль`);
+        } else if (i % 2 === 0) {
+          console.log(`${i} - четное число`);
+        } else {
+          console.log(`${i} - нечетное число`);
+        }
+      }
+
+      //  Задание 2
+      // Дан массив [1, 2, 3, 4, 5, 6, 7]. Сделайте из этого массива следующий [1, 2, 3, 6, 7]
+      const arr = [1, 2, 3, 4, 5, 6, 7];
+      arr.splice(3, 2);
+      console.log(arr);
+
+      // Задание 3
+      // Используя Math.random() вам необходимо генерировать цифры от 0 до 9, и создать массив состоящий из 5 таких элементов
+      // 1. Рассчитать сумму элементов этого массива
+      // 2. Найти минимальное число
+      // 3. Найти есть ли в этом массиве число 3
+
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      const number = [];
+      for (let i = 0; i < 5; i++) {
+        number[i] = getRandomNumber(0, 10);
+      }
+      console.log(number);
+
+      // 1
+      let sum = 0;
+      for (let i = 0; i < number.length; i++) {
+        sum = sum + number[i];
+      }
+      console.log(sum);
+
+      // 2
+      let min = number[0];
+      for (let i = 1; i < number.length; i++) {
+        if (number[i] < min) {
+          min = number[i];
+        }
+      }
+      console.log(min);
+
+      // 3
+      let count = 0;
+      for (let i = 0; i < number.length; i++) {
+        if (number[i] === 3) {
+          count++;
+        }
+      }
+      console.log(`Количество чисел равным 3 - ${count}`);
+      // в задании не сказано найти колличество, сделала для себя
+      // так же можно через if(count > 1) {console.log('В массиве есть число 3');}
+
+      //*Необязательное задание.* Необходимо вывести горку в консоль (используя цикл for), как показано на рисунке, только у вашей горки должно быть 20 рядов, а не 5
+      const element = "x";
+      let repeat = "";
+      for (let i = 1; i <= 20; i++) {
+        repeat += element;
+        console.log(repeat);
+      }
+    </script>
+  </body>
+</html>
